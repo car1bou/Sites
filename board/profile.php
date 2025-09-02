@@ -11,7 +11,6 @@ if (!isLoggedIn()) {
 refreshLastActivity();
 $user = getCurrentUser();
 
-// 로그인한 사용자의 글만 조회
 $stmt = $pdo->prepare("SELECT * FROM posts WHERE user_id = :uid ORDER BY created_at DESC");
 $stmt->execute(['uid' => $user['id']]);
 $posts = $stmt->fetchAll();
