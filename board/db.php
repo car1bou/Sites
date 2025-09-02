@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'board';
 $username = 'root';
-$password = 'Huijung852?'; //MySQL 비밀번호
+$password =
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
