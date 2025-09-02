@@ -19,8 +19,7 @@ $user = getCurrentUser();
 <head>
     <meta charset="UTF-8">
     <title>게시판</title>
-    <link rel="stylesheet" href="forum.css"> <!-- 여기로 바꿈 -->
-</head>
+    <link rel="stylesheet" href="forum.css">
 <body>
 <div class="board-container">
     <div class="board-header">자유 게시판</div>
