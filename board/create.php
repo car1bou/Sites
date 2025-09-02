@@ -9,13 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id'];
     $imagePath = null;
 
-    // 이미지 저장 폴더 생성
+    //이미지 저장 폴더 생성
     $uploadDir = 'uploads/';
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
 
-    // 이미지 업로드 처리
+    //이미지 업로드
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $tmpName = $_FILES['image']['tmp_name'];
         $fileName = basename($_FILES['image']['name']);
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // DB 저장 (image_path 포함)
+    //DB 저장
     $stmt = $pdo->prepare("INSERT INTO posts (title, content, image_path, user_id) VALUES (?, ?, ?, ?)");
     $stmt->execute([$title, $content, $imagePath, $user_id]);
 
@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>글 작성</title>
     <link rel="stylesheet" href="forum.css">
     <style>
-        /* 기존 스타일 유지 */
         .form-wrapper {
             min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
